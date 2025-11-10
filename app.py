@@ -1,11 +1,6 @@
 import streamlit as st
 import pandas as pd
 import joblib
-try:
-    import mediapipe as mp
-except ImportError:
-    import types
-    mp = types.SimpleNamespace()
 # === 1. Load model ===
 model = joblib.load('house_price_model.pkl')
 
