@@ -1,7 +1,11 @@
 import streamlit as st
 import pandas as pd
 import joblib
-
+try:
+    import mediapipe as mp
+except ImportError:
+    import types
+    mp = types.SimpleNamespace()
 # === 1. Load model ===
 model = joblib.load('house_price_model.pkl')
 
@@ -9,7 +13,7 @@ st.title("🏠 House Price Prediction")
 st.write("Masukkan detail properti untuk memprediksi harga rumah.")
 
 # === 2. Data referensi kota dan kodenya ===
-# Misalnya sesuai dataset kamu
+
 city_mapping = {
     'Acton, CA': 1,
     'Agoura Hills, CA': 3,
